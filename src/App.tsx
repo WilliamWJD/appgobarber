@@ -1,13 +1,16 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StatusBar } from 'react-native';
 
 const App: React.FC = () => (
-  <View style={{
-    flex: 1, backgroundColor: '#7159c1', justifyContent: 'center', alignItems: 'center',
-  }}
-  >
-    <Text style={{ color: '#fff', fontWeight: 'bold', fontSize: 20 }}>GoBarber</Text>
-  </View>
+  <>
+    <StatusBar barStyle="light-content" backgroundColor="#312e38" />
+    <View style={{
+      flex: 1, backgroundColor: '#312e38', justifyContent: 'center', alignItems: 'center',
+    }}
+    >
+      <Text style={{ color: '#fff', fontWeight: 'bold', fontSize: 20 }}>GoBarber</Text>
+    </View>
+  </>
 );
 
 export default App;
