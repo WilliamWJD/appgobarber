@@ -4,6 +4,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  TextInput,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Form } from '@unform/mobile';
@@ -26,9 +27,10 @@ import {
 
 const SignIn: React.FC = () => {
   const navigation = useNavigation();
+  const passwordInputRef = useRef<TextInput>(null);
   const formRef = useRef<FormHandles>(null);
 
-  const handleSignIn = useCallback((data:object) => {
+  const handleSignIn = useCallback((data: object) => {
     console.log(data);
   }, []);
 
@@ -41,13 +43,29 @@ const SignIn: React.FC = () => {
             <Title>Faça seu logon</Title>
 
             <Form ref={formRef} onSubmit={handleSignIn}>
-              <Input name="email" icon="mail" placeholder="E-mail" />
-              <Input name="password" icon="lock" placeholder="Senha" />
+              <Input
+                autoCapitalize="none"
+                autoCorrect={false}
+                name="email"
+                icon="mail"
+                placeholder="E-mail"
+                returnKeyType="next"
+                onSubmitEditing={() => passwordInputRef.current?.focus()}
+              />
+              <Input
+                ref={passwordInputRef}
+                name="password"
+                icon="lock"
+                placeholder="Senha"
+                secureTextEntry
+                returnKeyType="send"
+                onSubmitEditing={() => formRef.current?.submitForm()}
+              />
             </Form>
 
             <Button onPress={() => formRef.current?.submitForm()}>Entrar</Button>
 
-            <ForgotPassword onPress={() => {}}>
+            <ForgotPassword onPress={() => { console.log('teste'); }}>
               <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
             </ForgotPassword>
           </Container>
