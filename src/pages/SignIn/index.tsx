@@ -37,39 +37,37 @@ const SignIn: React.FC = () => {
   return (
     <>
       <KeyboardAvoidingView style={{ flex: 1 }} enabled behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-        <ScrollView keyboardShouldPersistTaps="handled">
-          <Container>
-            <Image source={logoImg} />
-            <Title>Faça seu logon</Title>
+        <Container>
+          <Image source={logoImg} />
+          <Title>Faça seu logon</Title>
 
-            <Form ref={formRef} onSubmit={handleSignIn}>
-              <Input
-                autoCapitalize="none"
-                autoCorrect={false}
-                name="email"
-                icon="mail"
-                placeholder="E-mail"
-                returnKeyType="next"
-                onSubmitEditing={() => passwordInputRef.current?.focus()}
-              />
-              <Input
-                ref={passwordInputRef}
-                name="password"
-                icon="lock"
-                placeholder="Senha"
-                secureTextEntry
-                returnKeyType="send"
-                onSubmitEditing={() => formRef.current?.submitForm()}
-              />
-            </Form>
+          <Form ref={formRef} onSubmit={handleSignIn}>
+            <Input
+              autoCapitalize="none"
+              autoCorrect={false}
+              name="email"
+              icon="mail"
+              placeholder="E-mail"
+              returnKeyType="next"
+              onSubmitEditing={() => passwordInputRef.current?.focus()}
+            />
+            <Input
+              ref={passwordInputRef}
+              name="password"
+              icon="lock"
+              placeholder="Senha"
+              secureTextEntry
+              returnKeyType="send"
+              onSubmitEditing={() => formRef.current?.submitForm()}
+            />
+          </Form>
 
-            <Button onPress={() => formRef.current?.submitForm()}>Entrar</Button>
+          <Button onPress={() => formRef.current?.submitForm()}>Entrar</Button>
 
-            <ForgotPassword onPress={() => { console.log('teste'); }}>
-              <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
-            </ForgotPassword>
-          </Container>
-        </ScrollView>
+          <ForgotPassword onPress={() => { console.log('teste'); }}>
+            <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
+          </ForgotPassword>
+        </Container>
       </KeyboardAvoidingView>
 
       <CreateAccountButton onPress={() => navigation.navigate('SignUp')}>

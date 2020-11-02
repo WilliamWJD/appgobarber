@@ -8,19 +8,19 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size:20px;
+  font-size:24px;
   color:#f4efe8;
   font-family:'RobotoSlab-Medium';
-  margin:50px 0 24px;
+  margin:64px 0 24px;
 `;
 
 export const ForgotPassword = styled.TouchableOpacity`
-  margin-top:18px;
+  margin-top:24px;
 `;
 
 export const ForgotPasswordText = styled.Text`
   color:#f4efe8;
-  font-size:15px;
+  font-size:18px;
   font-family:'RobotoSlab-Regular';
 `;
 
